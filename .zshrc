@@ -96,6 +96,8 @@ function zle-line-init zle-keymap-select {
     zle reset-prompt
 }
 
+bindkey -v
+
 # Use vim cli mode
 bindkey '^P' up-history
 bindkey '^N' down-history

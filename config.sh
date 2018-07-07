@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 FILES=( ".aliases" ".zshenv" ".zshrc" ".psqlrc" )
