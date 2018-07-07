@@ -1,6 +1,8 @@
 
 #!/bin/bash
 
+FILES=( ".aliases" ".zshenv" ".zshrc" ".psqlrc" )
+
 CURRDIR=`pwd`
 
 if [[ "$TERM_PROGRAM" == "iTerm.app" ]] ; then
@@ -19,17 +21,14 @@ fi
 
 SCRIPTDIR=$(cd `dirname $0` && pwd)
 
-# Create Links
 cd ~
-ln -s $SCRIPTDIR/.aliases .aliases
-ln -s $SCRIPTDIR/.gitconfig .gitconfig
-ln -s $SCRIPTDIR/.spacemacs .spacemacs
-ln -s $SCRIPTDIR/.zshenv .zshenv
-ln -s $SCRIPTDIR/.zshrc .zshrc
-ln -s $SCRIPTDIR/.hammerspoon .hammerspoon
-ln -s $SCRIPTDIR/.psqlrc .psqlrc
-ln -s $SCRIPTDIR/.vim .vim
-ln -s $SCRIPTDIR/.iterm2 .iterm2
-ln -s $SCRIPTDIR/.lein .lein
-ln -s $SCRIPTDIR/.zprezto .zprezto
+
+# Create Links
+for f in "${FILES[@]}"
+do
+	if [ -f $f ]; then
+		mv $f $f.bak
+	fi
+	ln -s $SCRIPTDIR/$f $f
+done 
 
