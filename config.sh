@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES=( ".aliases" ".zshenv" ".zshrc" ".psqlrc" )
+FILES=( ".aliases" ".zshenv" ".zshrc" ".psqlrc" ".spacemacs" )
 
 CURRDIR=`pwd`
 
